@@ -1,0 +1,35 @@
+File: x264.c
+Mode: Mixed
+
+Summary:
+7 # of good rounds
+1 # of bad rounds
+ 1.18s (90.58%)¹ total
+ 0.92s (94.00%)¹ good trace learning²
+ 0.26s (78.54%)¹ bad trace program repair
+
+No solution found, unable to fix the program.
+---------------------------------------------------
+
+Good trace learning:
+- - - - - - - - - - -
+Iteration  1:  0.44s (84.62%)¹
+Iteration  2:  0.44s (94.16%)¹
+Iteration  3:  0.45s (93.16%)¹
+Iteration  4:  0.20s (100.00%)¹
+Iteration  5:  0.21s (100.00%)¹
+Iteration  6:  0.19s (100.00%)¹
+Iteration  7:  0.18s (100.00%)¹
+---------------------------------------------------
+
+Bad trace program repair:
+- - - - - - - - - - - - - 
+Iteration  1:  0.26s (78.54%)¹
+Assertion triggered: 25: assert(pointer_NULL == 0);
+---------------------------------------------------
+
+
+¹ All times in seconds. In parenthesis the time spent in the external model-checker.
+² The total time is less than the sum of individual iterations because of parallel execution of good iterations.
+³ For each bad iteration all changes are printed from the beginning. The algorithm can backtrack, therefore
+  the list is not necessarily incremental.

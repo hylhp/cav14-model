@@ -1,0 +1,33 @@
+File: fft.c
+Mode: Mixed
+
+Summary:
+5 # of good rounds
+1 # of bad rounds
+ 1.11s (89.56%)¹ total
+ 0.96s (92.00%)¹ good trace learning²
+ 0.15s (73.83%)¹ bad trace program repair
+
+No solution found, unable to fix the program.
+---------------------------------------------------
+
+Good trace learning:
+- - - - - - - - - - -
+Iteration  1:  0.34s (87.17%)¹
+Iteration  2:  0.35s (92.80%)¹
+Iteration  3:  0.20s (85.93%)¹
+Iteration  4:  0.18s (100.00%)¹
+Iteration  5:  0.15s (100.00%)¹
+---------------------------------------------------
+
+Bad trace program repair:
+- - - - - - - - - - - - - 
+Iteration  1:  0.15s (73.83%)¹
+Assertion triggered: 8: assert(gTime == 1);
+---------------------------------------------------
+
+
+¹ All times in seconds. In parenthesis the time spent in the external model-checker.
+² The total time is less than the sum of individual iterations because of parallel execution of good iterations.
+³ For each bad iteration all changes are printed from the beginning. The algorithm can backtrack, therefore
+  the list is not necessarily incremental.

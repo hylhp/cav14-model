@@ -1,0 +1,45 @@
+digraph PartialOrder {
+	compound = true
+	"30: thread_child1();" -> "31: thread_child2();"
+	"28: gID = 0;" -> "29: thread_main();"
+	"29: thread_main();" -> "30: thread_child1();"
+	"7: crt_child = 1;" -> "8: assert(gTime == 1);"
+	subgraph cluster2 {
+		label = "19: int thread_child2() {...}"
+		color = blue
+		"21: if (gID == 0) {...}"  [label = " ", style = invisible]
+		"20: assume(crt_child == 1);"  [label = "20: assume(crt_child == 1);"]
+		subgraph cluster3 {
+			label = "21: if (gID == 0) {...}"
+			color = blue
+			"22: gID = 1;"  [label = "22: gID = 1;"]
+			"23: gTime = 1;"  [label = "23: gTime = 1;"]
+		}
+	}
+	subgraph cluster4 {
+		label = "11: int thread_child1() {...}"
+		color = blue
+		"13: if (gID == 0) {...}"  [label = " ", style = invisible]
+		"12: assume(crt_child == 1);"  [label = "12: assume(crt_child == 1);"]
+		subgraph cluster5 {
+			label = "13: if (gID == 0) {...}"
+			color = blue
+			"14: gID = 1;"  [label = "14: gID = 1;"]
+			"15: gTime = 1;"  [label = "15: gTime = 1;"]
+		}
+	}
+	subgraph cluster1 {
+		label = "6: int thread_main() {...}"
+		color = blue
+		"8: assert(gTime == 1);"  [label = "8: assert(gTime == 1);"]
+		"7: crt_child = 1;"  [label = "7: crt_child = 1;"]
+	}
+	subgraph cluster6 {
+		label = "27: void main() {...}"
+		color = blue
+		"31: thread_child2();"  [label = "31: thread_child2();"]
+		"29: thread_main();"  [label = "29: thread_main();"]
+		"30: thread_child1();"  [label = "30: thread_child1();"]
+		"28: gID = 0;"  [label = "28: gID = 0;"]
+	}
+}

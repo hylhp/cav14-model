@@ -1,0 +1,34 @@
+digraph Counterexample {
+	12 -> 15 [color = black, style = solid, constraint = false]
+	18 -> 24 [color = black, style = solid, constraint = false]
+	11 -> 12 [color = white, style = solid]
+	14 -> 15 [color = black, style = solid, constraint = false]
+	12 -> 24 [color = white, style = solid]
+	7 -> 15 [color = black, style = solid, constraint = false]
+	7 -> 14 [color = white, style = solid]
+	15 -> 18 [color = white, style = solid]
+	14 -> 24 [color = black, style = solid, constraint = false]
+	9 -> 11 [color = white, style = solid]
+	12 -> 14 [color = black, style = solid, constraint = false]
+	7 -> 9 [color = black, style = solid, constraint = false]
+	subgraph cluster3 {
+		label = thread_child2
+		color = blue
+		15  [label = "20: assume(crt_child == 1);"]
+		18  [label = "21b: assume(!(gID == 0));"]
+	}
+	subgraph cluster2 {
+		label = thread_child1
+		color = blue
+		12  [label = "14: gID = 1;"]
+		9  [label = "12: assume(crt_child == 1);"]
+		24  [label = "15: gTime = 1;"]
+		11  [label = "13a: assume(gID == 0);"]
+	}
+	subgraph cluster1 {
+		label = thread_main
+		color = blue
+		7  [label = "7: crt_child = 1;"]
+		14  [label = "8: assert(gTime == 1);", color = red]
+	}
+}

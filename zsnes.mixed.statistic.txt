@@ -1,0 +1,36 @@
+File: zsnes.c
+Mode: Mixed
+
+Summary:
+4 # of good rounds
+1 # of bad rounds
+ 1.04s (87.79%)¹ total
+ 0.63s (91.13%)¹ good trace learning²
+ 0.41s (82.64%)¹ bad trace program repair
+
+Solution found, fixed the program.
+---------------------------------------------------
+
+Good trace learning:
+- - - - - - - - - - -
+Iteration  1:  0.33s (88.22%)¹
+Iteration  2:  0.33s (88.15%)¹
+Iteration  3:  0.12s (100.00%)¹
+Iteration  4:  0.10s (100.00%)¹
+---------------------------------------------------
+
+Bad trace program repair:
+- - - - - - - - - - - - - 
+Iteration  1:  0.19s (62.63%)¹
+Assertion triggered: 13: assert(audio_mutex == 1);
+---------------------------------------------------
+Verification:  0.22s (100.00%)¹
+Changes up to this iteration³:
+Reorder(8: audio_mutex = 1; <-- 7: thd_create = 1;)
+---------------------------------------------------
+
+
+¹ All times in seconds. In parenthesis the time spent in the external model-checker.
+² The total time is less than the sum of individual iterations because of parallel execution of good iterations.
+³ For each bad iteration all changes are printed from the beginning. The algorithm can backtrack, therefore
+  the list is not necessarily incremental.

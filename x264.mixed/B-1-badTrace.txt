@@ -1,0 +1,14 @@
+ | thread_main            | thread_read1                   | thread_read2                     | thread_close                    | 
+ | ====================== | ============================== | ================================ | =============================== | 
+ | 11: pointer_NULL = 0;  |                                |                                  |                                 | 
+ | 12: crt_read_thd = 1;  |                                |                                  |                                 | 
+ | 13: crt_close_thd = 1; |                                |                                  |                                 | 
+ |                        | 17: assume(crt_read_thd == 1); |                                  |                                 | 
+ |                        | 18: assert(pointer_NULL == 0); |                                  |                                 | 
+ |                        |                                | 23: assume(crt_read_thd == 1);   |                                 | 
+ |                        | 19: chd1_finish = 1;           |                                  |                                 | 
+ |                        |                                |                                  | 29: assume(crt_close_thd == 1); | 
+ |                        |                                |                                  | 30: assume(chd1_finish == 1);   | 
+ |                        |                                | 24: assume(chd1_finish == 1);    |                                 | 
+ |                        |                                |                                  | 31: pointer_NULL = 1;           | 
+ |                        |                                | !!25: assert(pointer_NULL == 0); |                                 | 

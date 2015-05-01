@@ -1,0 +1,32 @@
+digraph PartialOrder {
+	compound = true
+	"26: thread_main();" -> "27: thread_child();"
+	subgraph cluster3 {
+		label = "21: int use_var() {...}"
+		color = blue
+		"22: assert(band_width_var == 1);"  [label = "22: assert(band_width_var == 1);"]
+	}
+	subgraph cluster2 {
+		label = "6: int thread_main() {...}"
+		color = blue
+		"7: thd_create = 1;"  [label = "7: thd_create = 1;"]
+		"8: malloc_var();"  [label = "8: malloc_var();"]
+	}
+	subgraph cluster4 {
+		label = "17: int malloc_var() {...}"
+		color = blue
+		"18: band_width_var = 1;"  [label = "18: band_width_var = 1;"]
+	}
+	subgraph cluster5 {
+		label = "12: int thread_child() {...}"
+		color = blue
+		"14: use_var();"  [label = "14: use_var();"]
+		"13: assume(thd_create == 1);"  [label = "13: assume(thd_create == 1);"]
+	}
+	subgraph cluster1 {
+		label = "25: void main() {...}"
+		color = blue
+		"27: thread_child();"  [label = "27: thread_child();"]
+		"26: thread_main();"  [label = "26: thread_main();"]
+	}
+}

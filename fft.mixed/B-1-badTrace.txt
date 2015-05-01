@@ -1,0 +1,11 @@
+ | main         | thread_main              | thread_child1               | thread_child2               | 
+ | ============ | ======================== | =========================== | =========================== | 
+ | 28: gID = 0; |                          |                             |                             | 
+ |              | 7: crt_child = 1;        |                             |                             | 
+ |              |                          | 12: assume(crt_child == 1); |                             | 
+ |              |                          | 13a: assume(gID == 0);      |                             | 
+ |              |                          | 14: gID = 1;                |                             | 
+ |              | !!8: assert(gTime == 1); |                             |                             | 
+ |              |                          |                             | 20: assume(crt_child == 1); | 
+ |              |                          |                             | 21b: assume(!(gID == 0));   | 
+ |              |                          | 15: gTime = 1;              |                             | 

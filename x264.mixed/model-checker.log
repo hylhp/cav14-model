@@ -1,0 +1,250 @@
+file /tmp/output2810462922232999395.c: Parsing
+Converting
+Type-checking output2810462922232999395
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Partial Inlining
+Generic Property Instrumentation
+Starting Bounded Model Checking
+Adding SC constraints
+size of program expression: 685 steps
+no slicing due to threads
+Generated 1 VCC(s), 1 remaining after simplification
+Passing problem to SMT2 QF_AUFBV (with FPA) using Z3
+Running SMT2 QF_AUFBV (with FPA) using Z3
+Runtime decision procedure: 0.116s
+Building error trace
+
+Counterexample:
+
+State 3 file /tmp/output2810462922232999395.c line 2 thread 0
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 4 file /tmp/output2810462922232999395.c line 6 thread 0
+----------------------------------------------------
+  crt_read_thd=0 (00000000000000000000000000000000)
+
+State 5 file /tmp/output2810462922232999395.c line 7 thread 0
+----------------------------------------------------
+  crt_close_thd=0 (00000000000000000000000000000000)
+
+State 6 file /tmp/output2810462922232999395.c line 8 thread 0
+----------------------------------------------------
+  chd1_finish=0 (00000000000000000000000000000000)
+
+State 7 file /tmp/output2810462922232999395.c line 9 thread 0
+----------------------------------------------------
+  chd2_finish=0 (00000000000000000000000000000000)
+
+State 8 file <built-in-additions> line 57 thread 0
+----------------------------------------------------
+  __CPROVER_rounding_mode=0 (00000000000000000000000000000000)
+
+State 9 file /tmp/output2810462922232999395.c line 10 thread 0
+----------------------------------------------------
+  pointer_NULL=1 (00000000000000000000000000000001)
+
+State 10 file /tmp/output2810462922232999395.c line 19 thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 11 file /tmp/output2810462922232999395.c line 20 thread 0
+----------------------------------------------------
+  __thread_read1_finished=0 (00000000000000000000000000000000)
+
+State 12 file /tmp/output2810462922232999395.c line 21 thread 0
+----------------------------------------------------
+  __thread_read2_finished=0 (00000000000000000000000000000000)
+
+State 13 file /tmp/output2810462922232999395.c line 22 thread 0
+----------------------------------------------------
+  __thread_main_finished=0 (00000000000000000000000000000000)
+
+State 14 file /tmp/output2810462922232999395.c line 23 thread 0
+----------------------------------------------------
+  __thread_close_finished=0 (00000000000000000000000000000000)
+
+State 15 file /tmp/output2810462922232999395.c line 24 thread 0
+----------------------------------------------------
+  __assert_fail=0 (00000000000000000000000000000000)
+
+State 16 file <built-in-additions> line 78 thread 0
+----------------------------------------------------
+  __CPROVER_pipe_count=0 (00000000000000000000000000000000)
+
+State 17 file <built-in-additions> line 22 thread 0
+----------------------------------------------------
+  __CPROVER_threads_exited=(assignment removed)
+
+State 18 file <built-in-additions> line 23 thread 0
+----------------------------------------------------
+  __CPROVER_next_thread_id=0 (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 19 file <built-in-additions> line 30 thread 0
+----------------------------------------------------
+  __CPROVER_deallocated=NULL (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 20 file <built-in-additions> line 31 thread 0
+----------------------------------------------------
+  __CPROVER_dead_object=NULL (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 21 file <built-in-additions> line 32 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_object=NULL (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 22 file <built-in-additions> line 33 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_size=0 (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 23 file <built-in-additions> line 34 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_is_new_array=FALSE (0)
+
+State 24 file <built-in-additions> line 35 thread 0
+----------------------------------------------------
+  __CPROVER_memory_leak=NULL (0000000000000000000000000000000000000000000000000000000000000000)
+
+State 28 file /tmp/output2810462922232999395.c line 28 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 29 file /tmp/output2810462922232999395.c line 29 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 32 file /tmp/output2810462922232999395.c line 70 function thread_main thread 1
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 33 file /tmp/output2810462922232999395.c line 30 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 36 file /tmp/output2810462922232999395.c line 71 function thread_main thread 1
+----------------------------------------------------
+  pointer_NULL=0 (00000000000000000000000000000000)
+
+State 37 file /tmp/output2810462922232999395.c line 72 function thread_main thread 1
+----------------------------------------------------
+  crt_read_thd=1 (00000000000000000000000000000001)
+
+State 38 file /tmp/output2810462922232999395.c line 31 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 41 file /tmp/output2810462922232999395.c line 73 function thread_main thread 1
+----------------------------------------------------
+  crt_close_thd=1 (00000000000000000000000000000001)
+
+State 42 file /tmp/output2810462922232999395.c line 42 function thread_read1 thread 2
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 43 file /tmp/output2810462922232999395.c line 32 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 46 file /tmp/output2810462922232999395.c line 56 function thread_read2 thread 3
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 47 file /tmp/output2810462922232999395.c line 43 function thread_read1 thread 2
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 48 file /tmp/output2810462922232999395.c line 79 function thread_close thread 4
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 50 file /tmp/output2810462922232999395.c line 46 function thread_read1 thread 2
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 52 file /tmp/output2810462922232999395.c line 57 function thread_read2 thread 3
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 53 file /tmp/output2810462922232999395.c line 74 function thread_main thread 1
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 54 file /tmp/output2810462922232999395.c line 50 function thread_read1 thread 2
+----------------------------------------------------
+  chd1_finish=1 (00000000000000000000000000000001)
+
+State 55 file /tmp/output2810462922232999395.c line 80 function thread_close thread 4
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 56 file /tmp/output2810462922232999395.c line 51 function thread_read1 thread 2
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 57 file /tmp/output2810462922232999395.c line 81 function thread_close thread 4
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 58 file /tmp/output2810462922232999395.c line 33 function main thread 0
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 59 file /tmp/output2810462922232999395.c line 52 function thread_read1 thread 2
+----------------------------------------------------
+  __thread_read1_finished=1 (00000000000000000000000000000001)
+
+State 64 file /tmp/output2810462922232999395.c line 58 function thread_read2 thread 3
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 65 file /tmp/output2810462922232999395.c line 82 function thread_close thread 4
+----------------------------------------------------
+  pointer_NULL=1 (00000000000000000000000000000001)
+
+State 66 file /tmp/output2810462922232999395.c line 83 function thread_close thread 4
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 68 file /tmp/output2810462922232999395.c line 63 function thread_read2 thread 3
+----------------------------------------------------
+  __assert_fail=1 (00000000000000000000000000000001)
+
+State 69 file /tmp/output2810462922232999395.c line 84 function thread_close thread 4
+----------------------------------------------------
+  __thread_close_finished=1 (00000000000000000000000000000001)
+
+State 72 file /tmp/output2810462922232999395.c line 65 function thread_read2 thread 3
+----------------------------------------------------
+  __dummy=0 (00000000000000000000000000000000)
+
+State 73 file /tmp/output2810462922232999395.c line 34 function main thread 0
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 74 file /tmp/output2810462922232999395.c line 66 function thread_read2 thread 3
+----------------------------------------------------
+  __thread_read2_finished=1 (00000000000000000000000000000001)
+
+State 79 file /tmp/output2810462922232999395.c line 75 function thread_main thread 1
+----------------------------------------------------
+  __thread_main_finished=1 (00000000000000000000000000000001)
+
+State 84 file /tmp/output2810462922232999395.c line 35 function main thread 0
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 85 file /tmp/output2810462922232999395.c line 36 function main thread 0
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+State 86 file /tmp/output2810462922232999395.c line 37 function main thread 0
+----------------------------------------------------
+  __assume_dummy=0 (00000000000000000000000000000000)
+
+Violated property:
+  file /tmp/output2810462922232999395.c line 38 function main
+  assertion __assert_fail == 0
+  __assert_fail == 0
+
+VERIFICATION FAILED

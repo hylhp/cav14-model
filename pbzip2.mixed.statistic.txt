@@ -1,0 +1,39 @@
+File: pbzip2.c
+Mode: Mixed
+
+Summary:
+7 # of good rounds
+1 # of bad rounds
+ 1.80s (83.74%)¹ total
+ 1.07s (94.13%)¹ good trace learning²
+ 0.73s (68.41%)¹ bad trace program repair
+
+Solution found, fixed the program.
+---------------------------------------------------
+
+Good trace learning:
+- - - - - - - - - - -
+Iteration  1:  0.47s (85.35%)¹
+Iteration  2:  0.54s (93.28%)¹
+Iteration  3:  0.54s (92.75%)¹
+Iteration  4:  0.22s (100.00%)¹
+Iteration  5:  0.22s (100.00%)¹
+Iteration  6:  0.25s (100.00%)¹
+Iteration  7:  0.24s (99.59%)¹
+---------------------------------------------------
+
+Bad trace program repair:
+- - - - - - - - - - - - - 
+Iteration  1:  0.45s (49.34%)¹
+Assertion triggered: 26: assert(fifo_empty == 0);
+---------------------------------------------------
+Verification:  0.27s (100.00%)¹
+Changes up to this iteration³:
+AtomicSection(12: crt_output_thd = 1; --> 13: assume(output_finish == 1);)
+---------------------------------------------------
+
+
+¹ All times in seconds. In parenthesis the time spent in the external model-checker.
+² The total time is less than the sum of individual iterations because of parallel execution of good iterations.
+³ For each bad iteration all changes are printed from the beginning. The algorithm can backtrack, therefore
+  the list is not necessarily incremental.

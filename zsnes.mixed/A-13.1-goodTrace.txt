@@ -1,0 +1,8 @@
+Assertion: 13: assert(audio_mutex == 1);
+
+ | thread_main         | thread_child                  | 
+ | =================== | ============================= | 
+ | 7: thd_create = 1;  |                               | 
+ | 8: audio_mutex = 1; |                               | 
+ |                     | 12: assume(thd_create == 1);  | 
+ |                     | 13: assert(audio_mutex == 1); | 

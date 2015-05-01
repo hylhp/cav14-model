@@ -1,0 +1,19 @@
+digraph ProofObject {
+	11 -> 5 [style = dotted, color = red, constraint = false]
+	5 -> 8 [color = Blue, constraint = false]
+	8 -> 14 [style = dotted, color = black]
+	5 -> 11 [style = dotted, color = black]
+	11 -> 14 [color = Red, constraint = false]
+	subgraph cluster1 {
+		label = thread_main
+		color = blue
+		11  [label = "18: band_width_var = 1;"]
+		5  [label = "7: thd_create = 1;"]
+	}
+	subgraph cluster2 {
+		label = thread_child
+		color = blue
+		14  [label = "22: assert(band_width_var == 1);"]
+		8  [label = "13: assume(thd_create == 1);"]
+	}
+}

@@ -1,0 +1,40 @@
+digraph ProofObject {
+	20 -> 21 [color = Green, constraint = false]
+	6 -> 14 [color = Blue, constraint = false]
+	16 -> 17 [style = dotted, color = black]
+	18 -> 19 [style = dotted, color = black]
+	11 -> 13 [style = dotted, color = black]
+	2 -> 16 [color = Blue, constraint = false]
+	6 -> 20 [style = dotted, color = black]
+	17 -> 21 [style = dotted, color = black]
+	19 -> 20 [color = Red, constraint = false]
+	14 -> 16 [style = dotted, color = black]
+	13 -> 18 [style = dotted, color = black]
+	subgraph cluster3 {
+		label = thread_child2
+		color = blue
+		13  [label = "21a: assume(gID == 0);"]
+		18  [label = "22: gID = 1;"]
+		11  [label = "20: assume(crt_child == 1);"]
+		19  [label = "23: gTime = 1;"]
+	}
+	subgraph cluster1 {
+		label = thread_main
+		color = blue
+		20  [label = "8: assert(gTime == 1);"]
+		6  [label = "7: crt_child = 1;"]
+	}
+	subgraph cluster2 {
+		label = thread_child1
+		color = blue
+		14  [label = "12: assume(crt_child == 1);"]
+		21  [label = "15: gTime = 1;"]
+		16  [label = "13a: assume(gID == 0);"]
+		17  [label = "14: gID = 1;"]
+	}
+	subgraph cluster0 {
+		label = main
+		color = blue
+		2  [label = "28: gID = 0;"]
+	}
+}

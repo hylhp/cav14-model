@@ -1,0 +1,10 @@
+Deadlock step
+
+ | thread_main               | thread_child                       | 
+ | ========================= | ================================== | 
+ | 7: thd_create = 1;        |                                    | 
+ | 8: malloc_var();          |                                    | 
+ |                           | 13: assume(thd_create == 1);       | 
+ |   18: band_width_var = 1; |                                    | 
+ |                           | 14: use_var();                     | 
+ |                           |   22: assert(band_width_var == 1); | 

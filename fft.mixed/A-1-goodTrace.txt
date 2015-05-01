@@ -1,0 +1,13 @@
+Deadlock step
+
+ | main         | thread_main            | thread_child1               | thread_child2               | 
+ | ============ | ====================== | =========================== | =========================== | 
+ | 28: gID = 0; |                        |                             |                             | 
+ |              | 7: crt_child = 1;      |                             |                             | 
+ |              |                        |                             | 20: assume(crt_child == 1); | 
+ |              |                        |                             | 21a: assume(gID == 0);      | 
+ |              |                        |                             | 22: gID = 1;                | 
+ |              |                        | 12: assume(crt_child == 1); |                             | 
+ |              |                        | 13b: assume(!(gID == 0));   |                             | 
+ |              |                        |                             | 23: gTime = 1;              | 
+ |              | 8: assert(gTime == 1); |                             |                             | 

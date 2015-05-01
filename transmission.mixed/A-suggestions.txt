@@ -1,0 +1,2 @@
+ Deadlock-Round                   : thread_main() - 8: malloc_var(); --> 7: thd_create = 1; 
+ 22: assert(band_width_var == 1); : thread_main() - 8: malloc_var(); --> 7: thd_create = 1; 

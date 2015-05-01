@@ -1,0 +1,19 @@
+digraph Counterexample {
+	4 -> 14 [color = white, style = solid]
+	13 -> 14 [color = black, style = solid, constraint = false]
+	4 -> 10 [color = black, style = solid, constraint = false]
+	14 -> 4 [color = red, style = solid, constraint = false]
+	10 -> 13 [color = black, style = dotted]
+	subgraph cluster1 {
+		label = thread_main
+		color = blue
+		14  [label = "18: band_width_var = 1;"]
+		4  [label = "7: thd_create = 1;"]
+	}
+	subgraph cluster2 {
+		label = thread_child
+		color = blue
+		13  [label = "22: assert(band_width_var == 1);", color = red]
+		10  [label = "13: assume(thd_create == 1);"]
+	}
+}
