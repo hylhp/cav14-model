@@ -1,0 +1,2 @@
+*.c is bug model.
+*.mixed.corrected.c is the solution from cav'14 paper.
