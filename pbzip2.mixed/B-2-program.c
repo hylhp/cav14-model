@@ -24,7 +24,7 @@ void main() {
 int thread_output() {
   assume(crt_decompress_thd == 1);
   assume(crt_output_thd == 1);
-  assume(decompress_thd_finish == 1);
+  assume(decompress_thd_finish >= 1);
   output_finish = 1;
 }
 

@@ -1,50 +1,50 @@
 digraph Counterexample {
-	25 -> 28 [color = white, style = solid]
-	20 -> 21 [color = black, style = solid, constraint = false]
-	11 -> 17 [color = white, style = solid]
-	12 -> 17 [color = black, style = solid, constraint = false]
-	9 -> 11 [color = black, style = solid, constraint = false]
-	16 -> 18 [color = white, style = solid]
-	14 -> 16 [color = white, style = solid]
-	19 -> 20 [color = black, style = dotted]
-	9 -> 12 [color = white, style = solid]
-	9 -> 14 [color = black, style = solid, constraint = false]
-	23 -> 25 [color = white, style = solid]
-	9 -> 23 [color = black, style = solid, constraint = false]
+	12 -> 14 [color = white, style = solid]
+	23 -> 26 [color = black, style = solid, constraint = false]
+	20 -> 30 [color = white, style = solid]
+	11 -> 12 [color = black, style = solid, constraint = false]
+	28 -> 13 [color = red, style = solid, constraint = false]
+	13 -> 21 [color = black, style = solid, constraint = false]
+	22 -> 23 [color = black, style = dotted]
+	28 -> 30 [color = black, style = solid, constraint = false]
+	14 -> 15 [color = white, style = solid]
+	30 -> 32 [color = white, style = solid]
+	13 -> 26 [color = white, style = solid]
 	21 -> 22 [color = black, style = dotted]
-	12 -> 21 [color = white, style = solid]
-	22 -> 25 [color = black, style = solid, constraint = false]
-	18 -> 19 [color = black, style = solid, constraint = false]
-	17 -> 19 [color = black, style = dotted]
-	22 -> 12 [color = red, style = solid, constraint = false]
+	26 -> 28 [color = black, style = dotted]
+	11 -> 20 [color = black, style = solid, constraint = false]
+	15 -> 22 [color = black, style = solid, constraint = false]
+	18 -> 21 [color = white, style = solid]
+	11 -> 13 [color = white, style = solid]
+	11 -> 18 [color = black, style = solid, constraint = false]
 	subgraph cluster2 {
 		label = thread_decompress1
 		color = blue
-		18  [label = "20: decompress_thd_finish = 1;"]
-		14  [label = "18: assume(crt_decompress_thd == 1);"]
-		16  [label = "19: assert(fifo_empty == 0);"]
-	}
-	subgraph cluster3 {
-		label = thread_decompress2
-		color = blue
-		23  [label = "24: assume(crt_decompress_thd == 1);"]
-		25  [label = "25: assert(fifo_empty == 0);", color = red]
-		28  [label = "26: decompress_thd_finish = 2;"]
+		12  [label = "18: assume(crt_decompress_thd == 1);"]
+		14  [label = "19: assert(fifo_empty == 0);"]
+		15  [label = "20: decompress_thd_finish = 1;"]
 	}
 	subgraph cluster4 {
 		label = thread_output
 		color = blue
-		19  [label = "32: assume(decompress_thd_finish == 1);"]
-		17  [label = "31: assume(crt_output_thd == 1);"]
-		11  [label = "30: assume(crt_decompress_thd == 1);"]
-		20  [label = "33: output_finish = 1;"]
+		23  [label = "33: output_finish = 1;"]
+		22  [label = "32: assume(decompress_thd_finish >= 1);"]
+		18  [label = "30: assume(crt_decompress_thd == 1);"]
+		21  [label = "31: assume(crt_output_thd == 1);"]
+	}
+	subgraph cluster3 {
+		label = thread_decompress2
+		color = blue
+		20  [label = "24: assume(crt_decompress_thd == 1);"]
+		30  [label = "25: assert(fifo_empty == 0);", color = red]
+		32  [label = "26: decompress_thd_finish = 2;"]
 	}
 	subgraph cluster1 {
 		label = thread_main
 		color = blue
-		21  [label = "13: assume(output_finish == 1);"]
-		22  [label = "14: fifo_empty = 1;"]
-		9  [label = "11: crt_decompress_thd = 1;"]
-		12  [label = "12: crt_output_thd = 1;"]
+		11  [label = "11: crt_decompress_thd = 1;"]
+		13  [label = "12: crt_output_thd = 1;"]
+		26  [label = "13: assume(output_finish == 1);"]
+		28  [label = "14: fifo_empty = 1;"]
 	}
 }

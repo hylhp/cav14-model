@@ -3,16 +3,16 @@
  | 37: fifo_empty = 0;    |                                 |                                      |                                      |                                         | 
  | 38: output_finish = 0; |                                 |                                      |                                      |                                         | 
  |                        | 11: crt_decompress_thd = 1;     |                                      |                                      |                                         | 
- |                        |                                 |                                      |                                      | 30: assume(crt_decompress_thd == 1);    | 
- |                        | 12: crt_output_thd = 1;         |                                      |                                      |                                         | 
  |                        |                                 | 18: assume(crt_decompress_thd == 1); |                                      |                                         | 
+ |                        | 12: crt_output_thd = 1;         |                                      |                                      |                                         | 
  |                        |                                 | 19: assert(fifo_empty == 0);         |                                      |                                         | 
- |                        |                                 |                                      |                                      | 31: assume(crt_output_thd == 1);        | 
  |                        |                                 | 20: decompress_thd_finish = 1;       |                                      |                                         | 
- |                        |                                 |                                      |                                      | 32: assume(decompress_thd_finish == 1); | 
+ |                        |                                 |                                      |                                      | 30: assume(crt_decompress_thd == 1);    | 
+ |                        |                                 |                                      | 24: assume(crt_decompress_thd == 1); |                                         | 
+ |                        |                                 |                                      |                                      | 31: assume(crt_output_thd == 1);        | 
+ |                        |                                 |                                      |                                      | 32: assume(decompress_thd_finish >= 1); | 
  |                        |                                 |                                      |                                      | 33: output_finish = 1;                  | 
  |                        | 13: assume(output_finish == 1); |                                      |                                      |                                         | 
  |                        | 14: fifo_empty = 1;             |                                      |                                      |                                         | 
- |                        |                                 |                                      | 24: assume(crt_decompress_thd == 1); |                                         | 
  |                        |                                 |                                      | !!25: assert(fifo_empty == 0);       |                                         | 
  |                        |                                 |                                      | 26: decompress_thd_finish = 2;       |                                         | 

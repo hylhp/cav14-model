@@ -22,7 +22,7 @@ digraph PartialOrder {
 		color = blue
 		"30: assume(crt_decompress_thd == 1);"  [label = "30: assume(crt_decompress_thd == 1);"]
 		"33: output_finish = 1;"  [label = "33: output_finish = 1;"]
-		"32: assume(decompress_thd_finish == 1);"  [label = "32: assume(decompress_thd_finish == 1);"]
+		"32: assume(decompress_thd_finish >= 1);"  [label = "32: assume(decompress_thd_finish >= 1);"]
 		"31: assume(crt_output_thd == 1);"  [label = "31: assume(crt_output_thd == 1);"]
 	}
 	subgraph cluster3 {
