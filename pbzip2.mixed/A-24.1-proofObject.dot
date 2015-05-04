@@ -1,15 +1,14 @@
 digraph ProofObject {
-	12 -> 28 [color = Green, constraint = false]
+	2 -> 22 [color = Red, constraint = false]
 	18 -> 19 [style = dotted, color = black]
 	2 -> 3 [style = dotted, color = black]
 	14 -> 25 [style = dotted, color = black]
 	25 -> 28 [style = dotted, color = black]
-	2 -> 12 [color = Red, constraint = false]
 	20 -> 25 [color = Blue, constraint = false]
 	17 -> 18 [style = dotted, color = black]
 	8 -> 14 [style = dotted, color = black]
 	19 -> 20 [style = dotted, color = black]
-	8 -> 11 [color = Blue, constraint = false]
+	22 -> 28 [color = Green, constraint = false]
 	12 -> 16 [style = dotted, color = black]
 	11 -> 12 [style = dotted, color = black]
 	subgraph cluster3 {

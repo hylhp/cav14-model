@@ -1,21 +1,23 @@
 digraph PartialOrder {
 	compound = true
 	"38: fifo_empty = 0;" -> "39: output_finish = 0;"
+	"41: thread_decompress1();" -> "42: thread_decompress2();"
+	"12: crt_output_thd = 1;" -> "13: assume(output_finish == 1);"
+	"39: output_finish = 0;" -> "40: thread_main();"
+	"18: assume(crt_decompress_thd == 1);" -> "19: assert(fifo_empty == 0);"
+	"33: assume(decompress_thd_finish == 1);" -> "34: output_finish = 1;"
+	"32: assume(crt_output_thd == 1);" -> "34: output_finish = 1;"
+	"11: crt_decompress_thd = 1;" -> "13: assume(output_finish == 1);" [lhead = cluster3]
+	"13: assume(output_finish == 1);" -> "14: fifo_empty = 1;" [ltail = cluster3]
 	"19: assert(fifo_empty == 0);" -> "20: decompress_thd_finish = 1;"
 	"31: assume(crt_decompress_thd == 1);" -> "34: output_finish = 1;"
 	"40: thread_main();" -> "41: thread_decompress1();"
-	"33: assume(decompress_thd_finish >= 1);" -> "34: output_finish = 1;"
-	"26: assert(fifo_empty == 0);" -> "27: decompress_thd_finish = 2;"
 	"42: thread_decompress2();" -> "43: thread_output();"
-	"41: thread_decompress1();" -> "42: thread_decompress2();"
-	"12: crt_output_thd = 1;" -> "13: assume(output_finish == 1);"
-	"25: assume(output_finish == 1);" -> "26: assert(fifo_empty == 0);"
-	"39: output_finish = 0;" -> "40: thread_main();"
-	"18: assume(crt_decompress_thd == 1);" -> "19: assert(fifo_empty == 0);"
-	"13: assume(output_finish == 1);" -> "14: fifo_empty = 1;" [ltail = cluster3]
-	"32: assume(crt_output_thd == 1);" -> "34: output_finish = 1;"
-	"11: crt_decompress_thd = 1;" -> "13: assume(output_finish == 1);" [lhead = cluster3]
-	"24: assume(crt_decompress_thd == 1);" -> "26: assert(fifo_empty == 0);"
+	subgraph cluster5 {
+		label = "23: int thread_decompress2() {...}"
+		color = blue
+		"24: assert(fifo_empty == 0);"  [label = "24: assert(fifo_empty == 0);"]
+	}
 	subgraph cluster1 {
 		label = "10: int thread_main() {...}"
 		color = blue
@@ -36,14 +38,6 @@ digraph PartialOrder {
 		"20: decompress_thd_finish = 1;"  [label = "20: decompress_thd_finish = 1;"]
 		"19: assert(fifo_empty == 0);"  [label = "19: assert(fifo_empty == 0);"]
 	}
-	subgraph cluster5 {
-		label = "23: int thread_decompress2() {...}"
-		color = blue
-		"26: assert(fifo_empty == 0);"  [label = "26: assert(fifo_empty == 0);"]
-		"25: assume(output_finish == 1);"  [label = "25: assume(output_finish == 1);"]
-		"27: decompress_thd_finish = 2;"  [label = "27: decompress_thd_finish = 2;"]
-		"24: assume(crt_decompress_thd == 1);"  [label = "24: assume(crt_decompress_thd == 1);"]
-	}
 	subgraph cluster2 {
 		label = "37: void main() {...}"
 		color = blue
@@ -59,7 +53,7 @@ digraph PartialOrder {
 		color = blue
 		"34: output_finish = 1;"  [label = "34: output_finish = 1;"]
 		"32: assume(crt_output_thd == 1);"  [label = "32: assume(crt_output_thd == 1);"]
-		"33: assume(decompress_thd_finish >= 1);"  [label = "33: assume(decompress_thd_finish >= 1);"]
+		"33: assume(decompress_thd_finish == 1);"  [label = "33: assume(decompress_thd_finish == 1);"]
 		"31: assume(crt_decompress_thd == 1);"  [label = "31: assume(crt_decompress_thd == 1);"]
 	}
 }

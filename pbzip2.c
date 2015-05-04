@@ -21,16 +21,16 @@ thread_decompress1() {
 }
 
 thread_decompress2() {
-  assume(crt_decompress_thd == 1);
-  assume(output_finish == 1);
   assert (fifo_empty == 0);
-  decompress_thd_finish = 2;
+  //assume(crt_decompress_thd == 1);
+  //assume(output_finish == 1);
+  //decompress_thd_finish = 2;
 }
 
 thread_output() {
   assume(crt_decompress_thd == 1);
   assume(crt_output_thd == 1);
-  assume(decompress_thd_finish >= 1);
+  assume(decompress_thd_finish == 1);
   output_finish = 1;
 }
 

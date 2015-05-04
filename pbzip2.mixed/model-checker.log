@@ -1,6 +1,6 @@
-file /tmp/output6926008456477031564.c: Parsing
+file /tmp/output5642284800113995806.c: Parsing
 Converting
-Type-checking output6926008456477031564
+Type-checking output5642284800113995806
 Generating GOTO Program
 Adding CPROVER library
 Function Pointer Removal
@@ -8,10 +8,10 @@ Partial Inlining
 Generic Property Instrumentation
 Starting Bounded Model Checking
 Adding SC constraints
-size of program expression: 349 steps
+size of program expression: 275 steps
 no slicing due to threads
 Generated 2 VCC(s), 2 remaining after simplification
 Passing problem to SMT2 QF_AUFBV (with FPA) using Z3
 Running SMT2 QF_AUFBV (with FPA) using Z3
-Runtime decision procedure: 0.031s
+Runtime decision procedure: 0.025s
 VERIFICATION SUCCESSFUL
