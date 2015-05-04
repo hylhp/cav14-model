@@ -42,6 +42,8 @@ int thread_main() {
 }
 
 int thread_decompress2() {
+  assume(crt_decompress_thd == 1);
   assert(fifo_empty == 0);
+  decompress_thd_finish = 2;
 }
 

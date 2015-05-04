@@ -50,8 +50,10 @@ __CPROVER_atomic_begin();                  fifo_empty = 1;                      
                                          }
 
                                          int thread_decompress2() {
+__CPROVER_atomic_begin();                  __CPROVER_assume(crt_decompress_thd == 1); __assume_dummy=0;           __CPROVER_atomic_end();
 __CPROVER_atomic_begin();                  assert(fifo_empty == 0);                                               __CPROVER_atomic_end();
+__CPROVER_atomic_begin();                  decompress_thd_finish = 2;                                             __CPROVER_atomic_end();
                                          }
 
 
-// Line: 57
+// Line: 59

@@ -21,10 +21,9 @@ thread_decompress1() {
 }
 
 thread_decompress2() {
+  assume(crt_decompress_thd == 1);
   assert (fifo_empty == 0);
-  //assume(crt_decompress_thd == 1);
-  //assume(output_finish == 1);
-  //decompress_thd_finish = 2;
+  decompress_thd_finish = 2;
 }
 
 thread_output() {

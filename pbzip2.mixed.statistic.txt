@@ -4,30 +4,30 @@ Mode: Mixed
 Summary:
 7 # of good rounds
 1 # of bad rounds
- 1.62s (81.73%)¹ total
- 0.92s (92.37%)¹ good trace learning²
- 0.70s (67.72%)¹ bad trace program repair
+ 1.67s (82.42%)¹ total
+ 0.94s (92.47%)¹ good trace learning²
+ 0.72s (69.34%)¹ bad trace program repair
 
 Solution found, fixed the program.
 ---------------------------------------------------
 
 Good trace learning:
 - - - - - - - - - - -
-Iteration  1:  0.45s (83.71%)¹
-Iteration  2:  0.46s (90.93%)¹
-Iteration  3:  0.47s (89.87%)¹
-Iteration  4:  0.20s (100.00%)¹
-Iteration  5:  0.20s (100.00%)¹
-Iteration  6:  0.19s (100.00%)¹
-Iteration  7:  0.19s (100.00%)¹
+Iteration  1:  0.41s (83.50%)¹
+Iteration  2:  0.44s (89.82%)¹
+Iteration  3:  0.44s (90.27%)¹
+Iteration  4:  0.22s (100.00%)¹
+Iteration  5:  0.22s (100.00%)¹
+Iteration  6:  0.15s (100.00%)¹
+Iteration  7:  0.20s (99.51%)¹
 ---------------------------------------------------
 
 Bad trace program repair:
 - - - - - - - - - - - - - 
-Iteration  1:  0.43s (47.18%)¹
-Assertion triggered: 24: assert(fifo_empty == 0);
+Iteration  1:  0.45s (50.56%)¹
+Assertion triggered: 25: assert(fifo_empty == 0);
 ---------------------------------------------------
-Verification:  0.27s (100.00%)¹
+Verification:  0.28s (100.00%)¹
 Changes up to this iteration³:
 AtomicSection(12: crt_output_thd = 1; --> 13: assume(output_finish == 1);)
 ---------------------------------------------------

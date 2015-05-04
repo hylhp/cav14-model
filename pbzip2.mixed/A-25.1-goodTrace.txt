@@ -1,17 +1,17 @@
-Deadlock step
+Assertion: 25: assert(fifo_empty == 0);
 
  | main                   | thread_main                     | thread_decompress1                   | thread_decompress2                   | thread_output                           | 
  | ====================== | =============================== | ==================================== | ==================================== | ======================================= | 
  | 37: fifo_empty = 0;    |                                 |                                      |                                      |                                         | 
  | 38: output_finish = 0; |                                 |                                      |                                      |                                         | 
  |                        | 11: crt_decompress_thd = 1;     |                                      |                                      |                                         | 
- |                        |                                 |                                      | 24: assume(crt_decompress_thd == 1); |                                         | 
- |                        |                                 |                                      | 25: assert(fifo_empty == 0);         |                                         | 
- |                        |                                 | 18: assume(crt_decompress_thd == 1); |                                      |                                         | 
- |                        |                                 |                                      | 26: decompress_thd_finish = 2;       |                                         | 
  |                        | 12: crt_output_thd = 1;         |                                      |                                      |                                         | 
+ |                        |                                 | 18: assume(crt_decompress_thd == 1); |                                      |                                         | 
  |                        |                                 |                                      |                                      | 30: assume(crt_decompress_thd == 1);    | 
  |                        |                                 |                                      |                                      | 31: assume(crt_output_thd == 1);        | 
+ |                        |                                 |                                      | 24: assume(crt_decompress_thd == 1); |                                         | 
+ |                        |                                 |                                      | 25: assert(fifo_empty == 0);         |                                         | 
+ |                        |                                 |                                      | 26: decompress_thd_finish = 2;       |                                         | 
  |                        |                                 | 19: assert(fifo_empty == 0);         |                                      |                                         | 
  |                        |                                 | 20: decompress_thd_finish = 1;       |                                      |                                         | 
  |                        |                                 |                                      |                                      | 32: assume(decompress_thd_finish == 1); | 
