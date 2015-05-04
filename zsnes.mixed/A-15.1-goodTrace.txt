@@ -1,9 +1,9 @@
-Deadlock step
+Assertion: 15: assert(audio_mutex == 1);
 
  | thread_main                  | thread_child                  | 
  | ============================ | ============================= | 
  | 7: thd_create = 1;           |                               | 
+ |                              | 14: assume(thd_create == 1);  | 
  | 8a: assume(thd_create == 1); |                               | 
  | 9: audio_mutex = 1;          |                               | 
- |                              | 14: assume(thd_create == 1);  | 
  |                              | 15: assert(audio_mutex == 1); | 

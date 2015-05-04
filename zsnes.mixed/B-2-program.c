@@ -13,8 +13,12 @@ void main() {
 }
 
 int thread_main() {
-  audio_mutex = 1;
-  thd_create = 1;
+  atomicBegin();
+    thd_create = 1;
+    if (thd_create == 1) {
+      audio_mutex = 1;
+    }
+  atomicEnd();
 }
 
 int thread_child() {

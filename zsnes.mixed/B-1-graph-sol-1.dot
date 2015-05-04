@@ -1,19 +1,21 @@
 digraph Counterexample {
-	9 -> 5 [color = red, style = solid, constraint = false]
-	7 -> 8 [color = black, style = dotted]
-	8 -> 9 [color = black, style = solid, constraint = false]
-	5 -> 7 [color = black, style = solid, constraint = false]
-	5 -> 9 [color = white, style = solid]
+	9 -> 10 [color = black, style = dotted]
+	14 -> 7 [color = red, style = solid, constraint = false]
+	11 -> 14 [color = white, style = solid]
+	10 -> 14 [color = black, style = solid, constraint = false]
+	7 -> 11 [color = white, style = solid]
+	7 -> 9 [color = black, style = solid, constraint = false]
 	subgraph cluster2 {
 		label = thread_child
 		color = blue
-		8  [label = "13: assert(audio_mutex == 1);", color = red]
-		7  [label = "12: assume(thd_create == 1);"]
+		9  [label = "14: assume(thd_create == 1);"]
+		10  [label = "15: assert(audio_mutex == 1);", color = red]
 	}
 	subgraph cluster1 {
 		label = thread_main
 		color = blue
-		9  [label = "8: audio_mutex = 1;"]
-		5  [label = "7: thd_create = 1;"]
+		7  [label = "7: thd_create = 1;"]
+		11  [label = "8a: assume(thd_create == 1);"]
+		14  [label = "9: audio_mutex = 1;"]
 	}
 }

@@ -14,7 +14,9 @@ void main() {
 
 int thread_main() {
   thd_create = 1;
-  audio_mutex = 1;
+  if (thd_create == 1) {
+    audio_mutex = 1;
+  }
 }
 
 int thread_child() {

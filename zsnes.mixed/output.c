@@ -19,8 +19,12 @@
                                             }
 
                                          int thread_main() {
-__CPROVER_atomic_begin();                  audio_mutex = 1;                                                       __CPROVER_atomic_end();
-__CPROVER_atomic_begin();                  thd_create = 1;                                                        __CPROVER_atomic_end();
+                                           __CPROVER_atomic_begin();
+                                             thd_create = 1;                                                      
+                                             if (thd_create == 1) {
+                                               audio_mutex = 1;                                                   
+                                             }
+                                           __CPROVER_atomic_end();
                                          }
 
                                          int thread_child() {
@@ -29,4 +33,4 @@ __CPROVER_atomic_begin();                  assert(audio_mutex == 1);            
                                          }
 
 
-// Line: 32
+// Line: 36

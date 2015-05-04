@@ -1,1 +1,1 @@
- (1,1) : MoveUp (1,-998) - 8: audio_mutex = 1;  ->  7: thd_create = 1; 
+ (1,1) : AtomicSection (1,19) - 7: thd_create = 1;  ->  8: if (thd_create == 1) {...} 

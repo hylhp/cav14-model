@@ -5,7 +5,9 @@
 
 thread_main() {
   thd_create = 1;
-  audio_mutex = 1; //init var after create.
+  if(thd_create==1) {
+    audio_mutex = 1; //init var after create.
+  }
 }
 
 thread_child() {

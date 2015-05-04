@@ -1,2 +1,2 @@
- Deadlock-Round                : thread_main() - 8: audio_mutex = 1; --> 7: thd_create = 1; 
- 13: assert(audio_mutex == 1); : thread_main() - 8: audio_mutex = 1; --> 7: thd_create = 1; 
+ Deadlock-Round                : thread_main() - 8: if (thd_create == 1) {...} --> 7: thd_create = 1; 
+ 15: assert(audio_mutex == 1); : thread_main() - 8: if (thd_create == 1) {...} --> 7: thd_create = 1; 

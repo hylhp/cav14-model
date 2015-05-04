@@ -1,0 +1,21 @@
+digraph ProofObject {
+	11 -> 5 [style = dotted, color = red, constraint = false]
+	11 -> 12 [color = Red, constraint = false]
+	10 -> 11 [style = dotted, color = black]
+	5 -> 9 [color = Blue, constraint = false]
+	5 -> 10 [style = dotted, color = black]
+	9 -> 12 [style = dotted, color = black]
+	subgraph cluster2 {
+		label = thread_child
+		color = blue
+		12  [label = "15: assert(audio_mutex == 1);"]
+		9  [label = "14: assume(thd_create == 1);"]
+	}
+	subgraph cluster1 {
+		label = thread_main
+		color = blue
+		10  [label = "8a: assume(thd_create == 1);"]
+		11  [label = "9: audio_mutex = 1;"]
+		5  [label = "7: thd_create = 1;"]
+	}
+}
